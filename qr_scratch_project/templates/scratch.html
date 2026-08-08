@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scratch Your Card!</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="scratch-page">
+  <div>
+    <div class="scratch-heading">🎊 Scratch the card to reveal your fresher fortune! 🎊</div>
+
+    <div class="card-wrapper">
+      <div class="hidden-message" id="hiddenMessage">Loading your message...</div>
+      <canvas id="scratchCanvas" width="320" height="200"></canvas>
+    </div>
+
+    <div class="hint">👆 Use your mouse or finger to scratch the card</div>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-card">
+      <div class="popup-emoji">🎉</div>
+      <div class="popup-message" id="popupMessage"></div>
+      <button class="popup-close" id="popupClose">Awesome! 😄</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/scratch.js') }}"></script>
+</body>
+</html>

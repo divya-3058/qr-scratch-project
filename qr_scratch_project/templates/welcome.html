@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to IT Family!!</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="page-stack">
+    <img
+  class="poster-img"
+  src="{{ url_for('static', filename='images/poster.jpeg') }}"
+  alt="Nandha Arts and Science College - Department of IT - Fresher's Day poster"
+/>
+
+    <div class="welcome-container">
+      <div class="emoji-row">🎉 💻 🎓</div>
+      <div class="welcome-title">{{ title }}</div>
+      <div class="welcome-subtitle">"{{ subtitle }}"</div>
+      <a href="/scratch" class="btn">Continue ➜ Scratch Your Card 🎁</a>
+    </div>
+  </div>
+</body>
+</html>

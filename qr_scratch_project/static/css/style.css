@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e3c72, #2a5298 45%, #6a11cb 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  overflow-x: hidden;
+  padding: 30px 0;
+}
+
+/* Stacks the poster + welcome card vertically on the welcome page */
+.page-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.poster-img {
+  width: 100%;
+  max-width: 640px;
+  border-radius: 18px;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  animation: popIn 0.8s ease;
+  display: block;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---------- Welcome Page ---------- */
+.welcome-container {
+  text-align: center;
+  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  max-width: 640px;
+  width: 90%;
+  animation: popIn 0.8s ease;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.emoji-row {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.welcome-title {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.welcome-subtitle {
+  color: #f0f0ff;
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2a5298;
+  background: #ffd166;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.3);
+}
+
+/* ---------- Scratch Card Page ---------- */
+.scratch-page {
+  flex-direction: column;
+  text-align: center;
+}
+
+.scratch-heading {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 22px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.card-wrapper {
+  position: relative;
+  width: 320px;
+  max-width: 88vw;
+  height: 200px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  margin: 0 auto;
+}
+
+.hidden-message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.4;
+}
+
+canvas {
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+  touch-action: none;
+}
+
+.hint {
+  margin-top: 18px;
+  color: #e8e8ff;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* ---------- Popup ---------- */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.popup-overlay.show {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.popup-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 28px;
+  max-width: 380px;
+  width: 88%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  animation: popIn 0.4s ease;
+}
+
+.popup-emoji {
+  font-size: 3rem;
+  margin-bottom: 14px;
+}
+
+.popup-message {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2a5298;
+  margin-bottom: 22px;
+  line-height: 1.4;
+}
+
+.popup-close {
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: #6a11cb;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.popup-close:hover {
+  transform: translateY(-2px);
+}
+
+/* confetti */
+.confetti {
+  position: fixed;
+  top: -10px;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 998;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.9;
+  }
+}
